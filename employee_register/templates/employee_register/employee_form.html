@@ -1,0 +1,48 @@
+{% extends "employee_register/base.html" %}
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+
+    <!-- Fullname field with label -->
+    <div class="form-group">
+        {{ form.fullname.label_tag }}
+        {{ form.fullname }}
+    </div>
+
+    <!-- Mobile field with label -->
+    <div class="form-group">
+        {{ form.mobile.label_tag }}
+        {{ form.mobile }}
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <!-- Employee Code field with label -->
+            <div class="form-group">
+                {{ form.emp_code.label_tag }}
+                {{ form.emp_code }}
+            </div>
+        </div>
+    <div class="col-md-8">
+            <!-- Position field with label -->
+        <div class="form-group">
+            {{ form.position.label_tag }}
+            {{ form.position }}
+        </div>
+    </div>
+    </div>
+
+    <!-- Submit and Back buttons -->
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i> Submit</button>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'employee_list' %}" class="btn btn-secondary btn-block btn-lg">
+                <i class="fas fa-stream"></i> Back to list
+            </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}
